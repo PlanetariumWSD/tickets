@@ -5,7 +5,7 @@ on:
     branches:
       - schedule-source
     paths:
-      - '**/schedule.html'
+      - 'schedule.html'
 
 jobs:
   publish:
