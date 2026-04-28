@@ -1,4 +1,4 @@
-name: Update Schedule Test
+name: Update Hosted Schedule
 
 on:
   push:
@@ -8,8 +8,19 @@ on:
       - source/schedule.html
 
 jobs:
-  test:
+  publish:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Confirm trigger fired
-        run: echo "Workflow triggered because source/schedule.html changed"
+      - name: Checkout main
+        uses: actions/checkout@v4
+
+      - name: Copy schedule.html to index.html
+        run: cp source/schedule.html index.html
+
+      - name: Commit and push updated index.html
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update index.html from source/schedule.html"
+          branch: main
+          file_pattern: index.html
