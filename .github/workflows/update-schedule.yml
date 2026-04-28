@@ -1,0 +1,15 @@
+name: Update Schedule Test
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - source/schedule.html
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Confirm trigger fired
+        run: echo "Workflow triggered because source/schedule.html changed"
