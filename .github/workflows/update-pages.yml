@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - schedule-source
-    paths:
-      - schedule.html
-
 jobs:
   publish:
     runs-on: ubuntu-latest
