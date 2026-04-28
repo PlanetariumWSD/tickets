@@ -1,36 +1,13 @@
-name: Update Hosted Schedule
+name: Test Workflow
 
 on:
   push:
     branches:
-      - schedule-source
-    paths:
-      - 'schedule.html'
+      - main
 
 jobs:
-  publish:
+  test:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout source branch
-        uses: actions/checkout@v4
-        with:
-          ref: schedule-source
-
-      - name: Copy schedule.html to index.html
-        run: cp schedule.html index.html
-
-      - name: Checkout main branch
-        uses: actions/checkout@v4
-        with:
-          ref: main
-
-      - name: Copy index.html into main
-        run: cp $GITHUB_WORKSPACE/../schedule-source/index.html index.html
-
-      - name: Commit and push to main
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "Update index.html from schedule-source"
-          branch: main
-          file_pattern: index.html
+      - name: Hello
+        run: echo "Actions are working"
