@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - schedule-source
-    paths:
-      - schedule.html
 
 jobs:
   test:
